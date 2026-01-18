@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Monthsary Baby</title>
+
+<!-- CARTOON FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Baloo 2', cursive;
+  background: #ffe5ec;
+  overflow: hidden;
+}
+
+/* SLIDES */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.slide.active {
+  display: flex;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* CONTENT CARD */
+.content {
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 720px;
+  background: #fff;
+  border-radius: 35px;
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    max-height: none;
+  }
+}
+
+/* IMAGE */
+.content img {
+  width: 45%;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .content img {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+/* TEXT */
+.text {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* SPARKLY HEADING */
+h1 {
+  font-family: 'Fredoka', cursive;
+  color: #ff477e;
+  margin-bottom: 15px;
+  position: relative;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0%,100% { text-shadow: 0 0 0px #ffb3c6; }
+  50% { text-shadow: 0 0 12px #ff8fab; }
+}
+
+/* Emotion font sizes */
+.big-love { font-size: 48px; }
+.soft-love { font-size: 40px; }
+.playful { font-size: 42px; }
+.final-love { font-size: 46px; }
+
+/* WIGGLY TEXT */
+p {
+  font-size: 22px;
+  line-height: 1.7;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.3deg); }
+  75% { transform: rotate(-0.3deg); }
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* HEART BUTTON */
+button {
+  font-family: 'Fredoka', cursive;
+  padding: 14px 28px;
+  font-size: 18px;
+  cursor: pointer;
+  background: #ff477e;
+  color: white;
+  border: none;
+  border-radius: 50px 50px 50px 50px;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+button::before,
+button::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff477e;
+  border-radius: 50%;
+  top: -8px;
+}
+
+button::before { left: 12px; }
+button::after { right: 12px; }
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.prev {
+  background: #ffd6e0;
+  color: #ff477e;
+}
+
+.restart {
+  background: #ff8fab;
+}
+
+/* BUTTON FIX FOR LIGHT COLORS */
+.prev::before,
+.prev::after {
+  background: #ffd6e0;
+}
+.restart::before,
+.restart::after {
+  background: #ff8fab;
+}
+
+/* SCROLLING LYRICS */
+.lyrics-box {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lyrics {
+  position: absolute;
+  width: 100%;
+  animation: scrollLyrics 15s linear infinite;
+}
+
+@keyframes scrollLyrics {
+  0% { top: 100%; }
+  100% { top: -100%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide active" id="slide1">
+  <div class="content">
+    <img src="C:\Users\kapad\Downloads\download (17).jpg">
+    <div class="text">
+      <h1 class="big-love">Happy Monthsary Baby 💕</h1>
+      <p>
+        GUESS WHAT 😆💖<br>
+        It’s our MONTHSARYYYY 🎉<br>
+        7 months of giggles 🤭,cuddles 🧸<br>and me being obsessed with YOU 🥺✨
+      </p>
+      <div class="buttons">
+        <button onclick="go(2)">Next 💗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" id="slide2">
+  <div class="content">
+    <div class="text">
+      <h1 class="soft-love">Tiny Letter 💌</h1>
+      <p>
+        Hellooo Badmash Bille <br>
+        Kya kehri meri Jaan coding chor do? <br>
+        Anyways,Thank you for loving me,<br>
+        handling my nonsense 😌<br>
+        and being MY safe place 🌸
+      </p>
+      <div class="buttons">
+        <button class="prev" onclick="go(1)">Prev 💕</button>
+        <button onclick="go(3)">Next 💗</button>
+      </div>
+    </div>
+    <img src="C:\Users\kapad\Downloads\download (15).jpg">
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" id="slide3">
+  <div class="content">
+    <img src="C:\Users\kapad\Downloads\Cat Sticker - Cat - Descubre y comparte GIF.gif" alt="Dancing GIF">
+
+    <div class="text">
+      <h1 class="playful">Song for You 🎶</h1>
+
+      <div class="lyrics-box">
+        <div class="lyrics">
+          <p>Tera Mera Hai Pyar Amar<br></p>
+          <p>Tu Chaahe To Qadmon 💕<br></p>
+          <p>Main Sar Rakh Doon 🥰<br></p>
+          <p>Ye Jeevan kya, Agar maange tu😘<br></p>
+          <p>Meri Jaan Nazar kar du 💞<br></p>
+          <p>Tera Mera Hai Pyaar Amar🌟<br></p>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="prev" onclick="go(2)">Prev 💕</button>
+        <button onclick="go(4)">Next 💗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="slide4">
+  <div class="content">
+    <div class="text">
+      <h1 class="final-love">Love You Chicken Butt 🐥💖</h1>
+      <p>
+        I love you today 💕<br>
+        Tomorrow 💞<br>
+        Forever & always 💗<br><br>
+        Now click once more 😆<br>
+        Because you know you want to 🥺✨
+      </p>
+      <div class="buttons">
+        <button class="prev" onclick="go(3)">Prev 💕</button>
+        <button class="restart" onclick="go(1)">Once More 💖</button>
+      </div>
+    </div>
+    <img src="C:\Users\kapad\OneDrive\Pictures\Screenshots\Screenshot 2026-01-18 200348.png">
+  </div>
+</div>
+
+<script>
+function go(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.getElementById('slide' + n).classList.add('active');
+}
+</script>
+
+</body>
+</html>
