@@ -310,27 +310,25 @@ button:hover {
 
 <script>
 function go(n) {
-  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.slide').forEach(s => {
+    s.classList.remove('active');
+  });
   document.getElementById('slide' + n).classList.add('active');
 }
-  
-  function playSong() {
-    document.getElementById("mysong").play();
-  }
-  <script>
-  function playSong() {
-    const song = document.getElementById("mysong");
-    song.play().catch(err => {
-      console.log("User interaction required");
-    });
-  }
+
+function playSong() {
+  const song = document.getElementById("mysong");
+  song.play().catch(() => {});
+}
 </script>
 
-</script>
+
+
 
 
 </body>
 </html>
+
 
 
 
