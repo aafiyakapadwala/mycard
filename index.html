@@ -317,11 +317,21 @@ function go(n) {
   function playSong() {
     document.getElementById("mysong").play();
   }
+  <script>
+  function playSong() {
+    const song = document.getElementById("mysong");
+    song.play().catch(err => {
+      console.log("User interaction required");
+    });
+  }
+</script>
+
 </script>
 
 
 </body>
 </html>
+
 
 
 
