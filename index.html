@@ -250,9 +250,22 @@ button:hover {
 
     <div class="text">
       <h1 class="playful">Song for You 🎶</h1>
-      <audio autoplay loop>
+     <button onclick="playSong()" style="
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  background: pink;
+  color: white;
+  cursor: pointer;
+">
+  ▶ Tap to Play Song
+</button>
+
+<audio id="mysong">
   <source src="song.mp3" type="audio/mpeg">
 </audio>
+
 
       <div class="lyrics-box">
         <div class="lyrics">
@@ -299,9 +312,15 @@ function go(n) {
   document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   document.getElementById('slide' + n).classList.add('active');
 }
+  
+  function playSong() {
+    document.getElementById("mysong").play();
+  }
 </script>
+
 
 </body>
 </html>
+
 
 
